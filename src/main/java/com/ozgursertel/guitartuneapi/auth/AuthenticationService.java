@@ -3,7 +3,7 @@ package com.ozgursertel.guitartuneapi.auth;
 import com.ozgursertel.guitartuneapi.config.JwtService;
 import com.ozgursertel.guitartuneapi.entity.user.Role;
 import com.ozgursertel.guitartuneapi.entity.user.User;
-import com.ozgursertel.guitartuneapi.repository.user.UserRepository;
+import com.ozgursertel.guitartuneapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

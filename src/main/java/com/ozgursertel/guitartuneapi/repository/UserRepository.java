@@ -1,4 +1,4 @@
-package com.ozgursertel.guitartuneapi.repository.user;
+package com.ozgursertel.guitartuneapi.repository;
 
 import com.ozgursertel.guitartuneapi.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;

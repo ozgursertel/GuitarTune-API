@@ -1,6 +1,6 @@
 package com.ozgursertel.guitartuneapi.config;
 
-import com.ozgursertel.guitartuneapi.repository.user.UserRepository;
+import com.ozgursertel.guitartuneapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
