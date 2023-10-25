@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,8 +25,14 @@ public class ChordService {
         return chord;
     }
 
-    public Optional<Chord> findChord(String string){
-        return chordRepository.findByNameOrShorthand(string);
+    public Optional<Chord> findChord(String string) throws UnsupportedEncodingException {
+        String encoded = URLEncoder.encode(string, StandardCharsets.UTF_8.toString());
+        return chordRepository.findByNameOrShorthandOrAliasname(string);
+    }
+
+    public List<Chord> findChordsWithSameBaseNote(String string) throws  UnsupportedEncodingException{
+        String encoded = URLEncoder.encode(string, StandardCharsets.UTF_8.toString());
+        return chordRepository.findChordsByBaseNote(string);
     }
 
 }

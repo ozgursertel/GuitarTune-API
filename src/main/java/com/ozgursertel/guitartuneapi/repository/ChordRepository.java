@@ -5,14 +5,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface ChordRepository extends JpaRepository<Chord,Integer> {
-    Optional<Chord> findByShorthand(String shorthand);
-    Optional<Chord> findByName(String name);
-    Optional<Chord> findByNameAndType(String name,String type);
 
-    @Query("SELECT c FROM Chord c WHERE c.shorthand = :string OR c.name = :string")
-    Optional<Chord> findByNameOrShorthand(String string);
+    @Query(value = "SELECT * FROM chords c WHERE c.basenote1 = :baseNote OR c.basenotealiasname = :baseNote",nativeQuery = true)
+    List<Chord> findChordsByBaseNote(String baseNote);
+
+    @Query(value = "SELECT * FROM chords c WHERE c.shorthand = :string OR c.name = :string OR c.aliasname = :string",nativeQuery = true)
+    Optional<Chord> findByNameOrShorthandOrAliasname(String string);
 }
