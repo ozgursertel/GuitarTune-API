@@ -1,16 +1,17 @@
 package com.ozgursertel.guitartuneapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.util.HashSet;
+import java.util.Set;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Getter
 @Table(name = "chords")
 public class Chord {
     @Id
@@ -39,48 +40,7 @@ public class Chord {
     @Column(name = "basenotealiasname")
     private String basenotealiasname;
 
-    public String getAliasName() {
-        return aliasName;
-    }
-
-    public String getBasenote1() {
-        return basenote1;
-    }
-
-    public String getBasenote2() {
-        return basenote2;
-    }
-
-    public String getBasenote3() {
-        return basenote3;
-    }
-
-    public int getChordId() {
-        return chordId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public ChordType getType() {
-        return type;
-    }
-
-    public String getDiagramUrl() {
-        return diagramUrl;
-    }
-
-    public String getShorthand() {
-        return shorthand;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getBasenotealiasname() {
-        return basenotealiasname;
-    }
-
+    @JsonIgnore
+    @ManyToMany(mappedBy = "chords",fetch = FetchType.LAZY)
+    private Set<Scale> scales;
 }

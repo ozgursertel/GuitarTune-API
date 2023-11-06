@@ -1,7 +1,9 @@
 package com.ozgursertel.guitartuneapi.services;
 
 import com.ozgursertel.guitartuneapi.entity.Chord;
+import com.ozgursertel.guitartuneapi.entity.Scale;
 import com.ozgursertel.guitartuneapi.repository.ChordRepository;
+import com.ozgursertel.guitartuneapi.repository.ScaleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +29,7 @@ public class ChordService {
 
     public Optional<Chord> findChord(String string) throws UnsupportedEncodingException {
         String encoded = URLEncoder.encode(string, StandardCharsets.UTF_8.toString());
-        return chordRepository.findByNameOrShorthandOrAliasname(string);
+        return chordRepository.findByNameOrShorthand(string);
     }
 
     public List<Chord> findChordsWithSameBaseNote(String string) throws  UnsupportedEncodingException{
@@ -35,4 +37,20 @@ public class ChordService {
         return chordRepository.findChordsByBaseNote(string);
     }
 
+    public Optional<Chord> findChordById(Integer id) {
+        return chordRepository.findById(id);
+    }
+
+    public void deleteChordByID(Integer id){
+        chordRepository.deleteById(id);
+    }
+
+    public Chord addChordToScale(Chord chord, Scale scale) {
+        chord.getScales().add(scale);
+        return chordRepository.save(chord);
+    }
+
+    public List<Chord> findAllChords() {
+        return chordRepository.findAll();
+    }
 }

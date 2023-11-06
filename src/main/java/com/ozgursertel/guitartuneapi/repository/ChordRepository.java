@@ -11,9 +11,13 @@ import java.util.Optional;
 @Repository
 public interface ChordRepository extends JpaRepository<Chord,Integer> {
 
-    @Query(value = "SELECT * FROM chords c WHERE c.basenote1 = :baseNote OR c.basenotealiasname = :baseNote",nativeQuery = true)
+    @Query("SELECT c FROM Chord c WHERE c.basenote1 = :baseNote OR c.basenotealiasname = :baseNote")
     List<Chord> findChordsByBaseNote(String baseNote);
 
-    @Query(value = "SELECT * FROM chords c WHERE c.shorthand = :string OR c.name = :string OR c.aliasname = :string",nativeQuery = true)
-    Optional<Chord> findByNameOrShorthandOrAliasname(String string);
+
+    @Query("SELECT c FROM Chord c WHERE c.name = :string OR c.shorthand = :string OR c.aliasName = :string")
+    Optional<Chord> findByNameOrShorthand(String string);
+
+    Chord findByName(String name);
+
 }
