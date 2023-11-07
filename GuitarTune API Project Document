@@ -1,0 +1,58 @@
+GuitarTune API Project Document
+Project Name: GuitarTune API
+Overview
+GuitarTune API is a RESTful web service designed to provide guitarists with a comprehensive collection of chords and scales, complete with diagrams, shorthand notations, and related information. This document outlines the features, technical stack, and the scope of the project.
+
+Project Features
+Chord Management
+
+List Chords
+Search Chords by Name or Type
+Chord Diagrams
+Add, Update, and Delete Chords
+Associate Chords with Scales
+Shorthand Notation for Chords
+Scale Management
+
+List Scales
+Search Scales by Name or Type
+Scale Diagrams
+Associate Scales with Chords
+Add, Update, and Delete Scales
+Chord-Scale Relationship
+
+Enhance understanding of chord progressions within scales
+User Authentication
+
+Secure endpoints with user authentication (JWT tokens)
+Allow authenticated users to add, update, and delete chords and scales
+Documentation
+
+Generate API documentation using Swagger or similar tools
+Document both chords, scales, and chord-scale relationships
+Database (PostgreSQL)
+
+Store chord and scale data, including name, type, diagrams, shorthand notation, and relationships between chords, scales, and positions.
+Technical Stack
+Backend Framework: Java Spring Boot
+Database: PostgreSQL
+User Authentication: Spring Security
+Documentation: Swagger
+Version Control: Git
+Endpoint Routes
+See the list of endpoint routes in the previous response for both chords, scales, and chord-scale relationships.
+Additional Ideas (Future Enhancements)
+User profiles to save favorite chords and scales.
+Comments and ratings for chords and scales.
+Audio samples for each chord and scale.
+Project Timeline
+Start Date: October 18, 2023
+End Date: November 6, 2023
+Estimated Completion Time: 3-4 days (adjust based on your actual progress)
+Project Challenges
+Challenges you anticipate in the project, such as implementing user authentication, handling image uploads, or managing chord-scale relationships.
+Team Members
+Özgür Mustafa Sertel - Full-stack developer
+Conclusion
+GuitarTune API is a valuable resource for guitarists, providing a user-friendly way to explore and learn about chords, scales, and their relationships. The API will be a testament to your skills as a full-stack developer and your passion for music and guitar playing.
+
